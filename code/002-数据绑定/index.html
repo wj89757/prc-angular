@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body ng-app>
+	<!-- 
+		view => 12131
+		model => 12131 
+		3个 view
+		数据是双向绑定的
+	-->
+
+	<input type="text" ng-model="name" value=""/>
+	
+	<!-- angular表达式 -->
+	{{ name }}
+	{{ 100 + 100 }}
+	{{ 'name' }}
+	
+	<input type="text" ng-model="name" value=""/>
+	<script type="text/javascript" src="../../vendor/angular/angular.js"></script>
+	<script type="text/javascript">
+		// js表达式
+		var string = 'alert(1+2)';
+		eval(string);
+	</script>
+</body>
+</html>

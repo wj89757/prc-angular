@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div ng-app="myApp">
+		
+		<div ng-controller="firstCtl">
+			<!-- 123,456,789 -->
+			<p>{{123456789 | number}}</p>
+			
+			<!-- 12345.679 -->
+			<p>{{12345.6789 | number:3}}</p>
+			
+			<!-- $999.00 -->
+			<p>{{999 | currency}}</p>
+			
+			<!-- rmb999.00 -->
+			<p>{{999 | currency:'rmb'}}</p>
+			
+			<!-- Sep 29, 2016 1:54:50 PM -->
+			<p>{{today | date:'medium'}}</p>
+			
+			<!-- "2016-09-29T05:55:27.289Z" -->
+			<p>{{today}}</p>		
+
+			<p>{{today | date:'y-MM-d HH:mm:ss EEEE'}}</p>
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="../../vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>

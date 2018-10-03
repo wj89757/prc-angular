@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+</head>
+<body ng-app="myApp">
+	
+	<p>{{1+1}}</p>
+	<p ng-bind="1+1"></p>
+	<p ng:bind="1+1"></p>
+	<!-- 校验规范 -->
+	<p data-ng-bind="1+1"></p>
+	<!-- 一定要写上大括号 -->
+	<p ng-bind-template="{{1+1}}"></p>
+	
+	<ul ng-init="cityArr = ['上海','北京','四川']">
+		<li ng-repeat="city in cityArr">
+			<span>
+				index:{{$index}}
+			</span>
+			<span>
+				first:{{$first}}
+			</span>
+			<span>
+				middle:{{$middle}}
+			</span>
+			<span>
+				last:{{last}}
+			</span>
+			<span>
+				{{city}}
+			</span>
+		</li>
+	</ul>
+	
+	<!-- 包含模板 -->
+	<div ng-include="'other.html'">
+	</div>
+	<div ng-include src="'other.html'">
+	</div>
+
+	<script type="text/javascript" src="../../vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>

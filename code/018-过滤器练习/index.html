@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../vendor/bootstrap3/css/bootstrap.min.css">
+	<style type="text/css">
+		.orderColor{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div ng-app="product">
+		<div class="container" ng-controller="productCtl">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" ng-model="search" class="form-control" placeholder="请输入关键字查找..."></div>
+					</form>
+				</div>
+			</nav>
+			<table class="table">
+				<thead>
+					<tr>
+						<th ng-click="changeOrder('id')" ng-class="{dropup:order === ''}">产品编号<span ng-class="{orderColor:orderType === 'id'}" class="caret"></span></th>
+						<th ng-click="changeOrder('name')" ng-class="{dropup:order === ''}">产品名称<span ng-class="{orderColor:orderType === 'name'}" class="caret"></span></th>
+						<th ng-click="changeOrder('price')" ng-class="{dropup:order === ''}">产品价格<span ng-class="{orderColor:orderType === 'price'}" class="caret"></span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="product in productData | filter : search | orderBy:order+orderType">
+					<!-- 只对id进行搜索 -->
+					<!-- <tr ng-repeat="product in productData | filter : {id:search}"> -->
+						<td ng-bind="product.id"></td>
+						<td ng-bind="product.name"></td>
+						<td ng-bind="product.price | currency : '￥'"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>
